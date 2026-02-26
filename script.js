@@ -1,0 +1,16 @@
+const botao = document.getElementById("btn Buscar");
+const nome = document.getElementById("nomePokemon");
+const imagem = document.getElementById("imagemPokemon");
+
+botao.addEventListener("click", function(){
+    const numero = document.getElementById("numero do pokemon").value;
+        fetch(`https://pokeapi.co/api/v2/pokemon/${numero}`)
+    .then(function(resposta){
+        return resposta.json ();
+    })
+    .then (function(dados){
+        nome.textContent = dados.name;
+        imagem.src = dados.sprites.front_default;
+    })
+    
+})
